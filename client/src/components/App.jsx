@@ -1,4 +1,8 @@
 import React from 'react';
+import Toolbar from './Toolbar.jsx';
+import Summary from './Summary.jsx';
+import ToyList from './ToyList.jsx';
+import TopTen from './TopTen.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -7,7 +11,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <p>Testing initial setup</p>
+      <div>
+        <Toolbar />
+        <Summary />
+        <ToyList />
+        <TopTen />
+      </div>
     );
   }
 }
