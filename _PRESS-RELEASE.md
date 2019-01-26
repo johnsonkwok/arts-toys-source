@@ -18,27 +18,39 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+Art Toys Source
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+Toy collection tracker and value estimator
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+Keep track of your ever-expanding collection and its estimated market value.
 
 ## Problem ##
   > Describe the problem your product solves.
+For toy collectors with very large collections, it's hard to keep track of what you own, so this application does that for you
+and can organize how you'd like to view your collection. Toy collectors are also constantly buying and selling toys, so
+they need to know how much a specific item is worth. This app takes care of that for you.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+It gives collectors only the information they need, without all the other fluff like a blog, marketplace, or
+forum because honestly, no one would use those anyway.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+Our service is FREE, made by an avid toy collector, FOR the toy collector.
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+Just make an account and start adding the items in your collection.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+I've used Stashpedia and PopPriceGuide before ATS [Art Toys Source], and I like the user interface of ATS so much more!
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+Check out our website and let us know if there are any features that you'd like to be added or improved upon.

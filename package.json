@@ -1,0 +1,19 @@
+{
+  "name": "art_toys_source",
+  "version": "1.0.0",
+  "description": "Toy collection tracker and value estimator",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnsonkwok/hrsf107-mvp.git"
+  },
+  "author": "Johnson Kwok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnsonkwok/hrsf107-mvp/issues"
+  },
+  "homepage": "https://github.com/johnsonkwok/hrsf107-mvp#readme"
+}
