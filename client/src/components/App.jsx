@@ -1,5 +1,5 @@
 import React from 'react';
-import Toolbar from './Toolbar.jsx';
+import Navbar from './Navbar.jsx';
 import Summary from './Summary.jsx';
 import ToyList from './ToyList.jsx';
 import TopTen from './TopTen.jsx';
@@ -27,12 +27,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Toolbar />
-        <div className="main">
+        <Navbar />
+        <main>
           {/* <Summary /> */}
           <ToyList toys={this.state.toys} />
           {/* <TopTen /> */}
-        </div>
+        </main>
       </div>
     );
   }

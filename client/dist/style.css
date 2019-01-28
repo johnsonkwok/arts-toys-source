@@ -1,3 +1,7 @@
+nav {
+  background-color: #e3f2fd;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
