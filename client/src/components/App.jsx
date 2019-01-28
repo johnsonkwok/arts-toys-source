@@ -7,15 +7,30 @@ import TopTen from './TopTen.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      toys: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('/toys')
+      .then(res => res.json())
+      .then((toys) => {
+        this.setState({
+          toys,
+        });
+      }).catch((err) => {
+        console.error(err);
+      });
   }
 
   render() {
     return (
       <div>
         <Toolbar />
-        <Summary />
-        <ToyList />
-        <TopTen />
+        {/* <Summary /> */}
+        <ToyList toys={this.state.toys} />
+        {/* <TopTen /> */}
       </div>
     );
   }
