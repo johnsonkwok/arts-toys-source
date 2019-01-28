@@ -1,9 +1,11 @@
 import React from 'react';
 import Toy from './Toy.jsx';
 
-const ToyList = () => (
-  <div>
-    <Toy />
+const ToyList = ({ toys }) => (
+  <div className="container">
+    {toys.map((toy) => (
+      <Toy key={toy.id} toy={toy} />
+    ))}
   </div>
 );
 

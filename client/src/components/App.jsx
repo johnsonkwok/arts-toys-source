@@ -28,9 +28,11 @@ class App extends React.Component {
     return (
       <div>
         <Toolbar />
-        {/* <Summary /> */}
-        <ToyList toys={this.state.toys} />
-        {/* <TopTen /> */}
+        <div className="main">
+          {/* <Summary /> */}
+          <ToyList toys={this.state.toys} />
+          {/* <TopTen /> */}
+        </div>
       </div>
     );
   }

@@ -25,7 +25,8 @@ CREATE TABLE IF NOT EXISTS toys (
 
 LOAD DATA LOCAL INFILE '/Users/johnsonkwok/Documents/HR/Week-10/hrsf107-mvp/db/toys_data.csv' 
   INTO TABLE toys
-  FIELDS TERMINATED BY ',' 
+  FIELDS TERMINATED BY ','
+  ENCLOSED BY "'"
   LINES TERMINATED BY '\n'
   IGNORE 1 ROWS
   (name,retail_price,est_value,company,type,category,item_num,property,exclusive_to,picture,release_year,tags);
