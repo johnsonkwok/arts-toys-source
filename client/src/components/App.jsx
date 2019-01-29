@@ -10,8 +10,10 @@ class App extends React.Component {
     this.state = {
       toys: [],
       view: 'all',
+      search: '',
     };
     this.updateToyList = this.updateToyList.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
     this.changeView = this.changeView.bind(this);
     this.changeStatus = this.changeStatus.bind(this);
   }
@@ -30,6 +32,10 @@ class App extends React.Component {
 
   componentDidMount() {
     this.updateToyList();
+  }
+
+  updateSearch(e) {
+    this.setState({ search: e.target.value });
   }
 
   changeStatus(property, toy) {
@@ -53,14 +59,21 @@ class App extends React.Component {
 
   render() {
     let toysToDisplay = this.state.toys;
+    const searchVal = this.state.search.toLowerCase();
     if (this.state.view === 'collection') {
       toysToDisplay = toysToDisplay.filter(toy => toy.own);
     } else if (this.state.view === 'wishlist') {
       toysToDisplay = toysToDisplay.filter(toy => toy.want);
+    } else if (this.state.view === 'search') {
+      toysToDisplay = toysToDisplay.filter(({name, company, type, category, property, exclusive_to, tags}) => {
+        return (name.toLowerCase().includes(searchVal) || company.toLowerCase().includes(searchVal) || type.toLowerCase().includes(searchVal) ||
+          category.toLowerCase().includes(searchVal) || property.toLowerCase().includes(searchVal) || exclusive_to.toLowerCase().includes(searchVal) ||
+          tags.toLowerCase().includes(searchVal));
+      });
     }
     return (
       <div>
-        <Navbar changeView={this.changeView} />
+        <Navbar changeView={this.changeView} updateSearch={this.updateSearch} />
         <main>
           {/* <Summary /> */}
           <ToyList changeStatus={this.changeStatus} toys={toysToDisplay} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import Search from './Search.jsx';
 
-const Navbar = ({ changeView }) => (
+const Navbar = ({ changeView, updateSearch }) => (
   <nav className="navbar navbar-light navbar-expand-lg">
     <button className="navbar-brand" type="button" onClick={() => changeView('all')}>Art Toys Source</button>
     <div className="collapse navbar-collapse">
@@ -14,7 +14,7 @@ const Navbar = ({ changeView }) => (
         </li>
       </ul>
     </div>
-    <Search />
+    <Search updateSearch={updateSearch} changeView={changeView} />
   </nav>
 );
 
