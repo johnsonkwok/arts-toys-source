@@ -2,6 +2,10 @@ nav {
   background-color: #e3f2fd;
 }
 
+main {
+  font-family: 'Lato', sans-serif;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -11,6 +15,25 @@ nav {
 }
 
 .picture {
-  width: 312px;
-  height: 223px;
+  width: 300px;
+  height: 214px;
+}
+
+.toy {
+  margin: 15px;
+}
+
+.toy-desc {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.value {
+  font-weight: 700;
+  color: seagreen;
+}
+
+.addIcon i {
+
 }

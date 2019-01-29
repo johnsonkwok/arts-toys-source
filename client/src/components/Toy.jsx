@@ -2,12 +2,20 @@ import React from 'react';
 
 const Toy = ({ toy }) => (
   <div className="toy">
-    <div>
+    <div className="toy-desc">
       <span>{toy.name}</span>
-      <span>${toy.est_value}</span>
+      <span className="value">${toy.est_value}</span>
     </div>
     <div>
       <img className="picture" src={`${toy.picture}`} alt="No Pic Available" />
+    </div>
+    <div className="btn-group">
+      <button type="button" className="btn btn-sm btn-outline-info addIcon">
+        <i className="fas fa-plus m-0" />
+      </button>
+      <button type="button" className="btn btn-sm btn-outline-info addIcon">
+        <i className="far fa-list-alt m-0" />
+      </button>
     </div>
   </div>
 );
