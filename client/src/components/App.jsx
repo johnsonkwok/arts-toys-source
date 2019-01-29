@@ -11,10 +11,12 @@ class App extends React.Component {
       toys: [],
       view: 'all',
     };
-    this.handleView = this.handleView.bind(this);
+    this.updateToyList = this.updateToyList.bind(this);
+    this.changeView = this.changeView.bind(this);
+    this.changeStatus = this.changeStatus.bind(this);
   }
 
-  componentDidMount() {
+  updateToyList() {
     fetch('/toys')
       .then(res => res.json())
       .then((toys) => {
@@ -26,7 +28,26 @@ class App extends React.Component {
       });
   }
 
-  handleView(view) {
+  componentDidMount() {
+    this.updateToyList();
+  }
+
+  changeStatus(property, toy) {
+    const body = {
+      propToChange: property,
+      toy: toy,
+    };
+    fetch('/toys', {
+      method: 'PUT',
+      body: JSON.stringify(body),
+      headers:{
+        'Content-Type': 'application/json',
+      },
+    }).then(() => this.updateToyList())
+      .catch(error => console.error('Network Error:', error));
+  }
+
+  changeView(view) {
     this.setState({ view });
   }
 
@@ -39,10 +60,10 @@ class App extends React.Component {
     }
     return (
       <div>
-        <Navbar handleView={this.handleView} />
+        <Navbar changeView={this.changeView} />
         <main>
           {/* <Summary /> */}
-          <ToyList toys={toysToDisplay} />
+          <ToyList changeStatus={this.changeStatus} toys={toysToDisplay} />
           {/* <TopTen /> */}
         </main>
       </div>
