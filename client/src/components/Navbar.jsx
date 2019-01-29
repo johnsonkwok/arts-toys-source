@@ -1,16 +1,16 @@
 import React from 'react';
 import Search from './Search.jsx';
 
-const Navbar = () => (
+const Navbar = ({ handleView }) => (
   <nav className="navbar navbar-light navbar-expand-lg">
-    <a className="navbar-brand" href="#">Art Toys Source</a>
+    <button className="navbar-brand" type="button" onClick={() => handleView('all')}>Art Toys Source</button>
     <div className="collapse navbar-collapse">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <a className="nav-link" href="#">My Collection</a>
+          <button className="nav-link" type="button" onClick={() => handleView('collection')}>My Collection</button>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Wishlist</a>
+          <button className="nav-link" type="button" onClick={() => handleView('wishlist')}>Wishlist</button>
         </li>
       </ul>
     </div>

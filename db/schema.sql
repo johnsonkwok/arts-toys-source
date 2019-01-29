@@ -20,7 +20,8 @@ CREATE TABLE IF NOT EXISTS toys (
   picture VARCHAR(150),
   release_year INT,
   tags VARCHAR(300),
-  own BOOLEAN NOT NULL DEFAULT 0
+  own BOOLEAN NOT NULL DEFAULT 0,
+  want BOOLEAN NOT NULL DEFAULT 0
 );
 
 LOAD DATA LOCAL INFILE '/Users/johnsonkwok/Documents/HR/Week-10/hrsf107-mvp/db/toys_data.csv' 

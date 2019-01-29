@@ -9,7 +9,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       toys: [],
+      view: 'all',
     };
+    this.handleView = this.handleView.bind(this);
   }
 
   componentDidMount() {
@@ -24,13 +26,23 @@ class App extends React.Component {
       });
   }
 
+  handleView(view) {
+    this.setState({ view });
+  }
+
   render() {
+    let toysToDisplay = this.state.toys;
+    if (this.state.view === 'collection') {
+      toysToDisplay = toysToDisplay.filter(toy => toy.own);
+    } else if (this.state.view === 'wishlist') {
+      toysToDisplay = toysToDisplay.filter(toy => toy.want);
+    }
     return (
       <div>
-        <Navbar />
+        <Navbar handleView={this.handleView} />
         <main>
           {/* <Summary /> */}
-          <ToyList toys={this.state.toys} />
+          <ToyList toys={toysToDisplay} />
           {/* <TopTen /> */}
         </main>
       </div>

@@ -12,7 +12,7 @@ class Search extends React.Component {
     return (
       <div>
         <form className="form-inline my-2 my-lg-0">
-          <input className="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" />
+          <input className="form-control mr-sm-1" type="search" placeholder="Search" />
           <button className="btn btn-outline-info my-2 my-sm-0" type="submit">&#187;</button>
         </form>
       </div>
