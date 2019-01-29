@@ -2,7 +2,12 @@ import React from 'react';
 import Toy from './Toy.jsx';
 
 const ToyList = ({ toys, changeStatus }) => {
-  const noToysMessage = <div>There are no toys to display.</div>;
+  const noToysMessage = (
+    <div className="empty-msg jumbotron">
+      <i className="far fa-surprise surprise-face" />
+      <span>There are no toys to display.</span>
+    </div>
+  );
   const toysToDisplay = (
     <div className="container">
       {toys.map((toy) => (

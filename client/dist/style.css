@@ -24,6 +24,20 @@ main {
   margin: 0 auto;
 }
 
+.empty-msg {
+  margin: 0 auto;
+  padding: 150px;
+  font-size: 60px;
+  color: darkred;
+  font-style: italic;
+}
+
+.surprise-face {
+  font-size: 120px;
+  padding-right: 30px;
+  color: firebrick;
+}
+
 .picture {
   width: 300px;
   height: 214px;
