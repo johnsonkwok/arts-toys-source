@@ -1,8 +1,10 @@
 const mysql = require('mysql');
+const config = require('../config.js');
 
 const db = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
+  user: 'ATS_admin',
+  password: config['mysql-pw'],
   database: 'toys_db',
 });
 
