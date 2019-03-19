@@ -12,11 +12,16 @@ class App extends React.Component {
       view: 'all',
       search: '',
     };
+    this.updateValues = this.updateValues.bind(this);
     this.updateToyList = this.updateToyList.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
     this.changeView = this.changeView.bind(this);
     this.changeStatus = this.changeStatus.bind(this);
   }
+
+  // updateEstValue(toy) {
+
+  // }
 
   updateToyList() {
     fetch('/toys')

@@ -55,7 +55,14 @@ app.get('/toys/item', (req, res) => {
   // url += `&callback=${successCb}`;
   url += '&REST-PAYLOAD';
   url += `&keywords=${keywords}`;
-  url += '&paginationInput.entriesPerPage=10';
+  url += '&itemFilter(0).name=Condition';
+  url += '&itemFilter(0).value=1000';
+  url += '&itemFilter(1).name=Currency';
+  url += '&itemFilter(1).value=USD';
+  url += '&itemFilter(2).name=SoldItemsOnly';
+  url += '&itemFilter(2).value=true';
+  url += '&paginationInput.entriesPerPage=20';
+  url += '&sortOrder=EndTimeSoonest';
 
   request.get(url, (err, response) => {
     if (err) {
