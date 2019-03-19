@@ -12,16 +12,52 @@ class App extends React.Component {
       view: 'all',
       search: '',
     };
-    this.updateValues = this.updateValues.bind(this);
+    this.updateEstValue = this.updateEstValue.bind(this);
     this.updateToyList = this.updateToyList.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
     this.changeView = this.changeView.bind(this);
     this.changeStatus = this.changeStatus.bind(this);
   }
 
-  // updateEstValue(toy) {
+  componentDidMount() {
+    this.updateToyList();
+  }
 
-  // }
+  updateEstValue(toy) {
+    let tags = '';
+    if (toy.tags === 'regular') {
+      tags += '-chase -keychain -flocked -gitd -metallic';
+    }
+    if (toy.exclusive_to === 'common') {
+      tags += ' -exclusive -SDCC -NYCC -ECCC -convention -LE';
+    }
+    const keywords = `${toy.name} ${toy.company} ${toy.type} ${toy.property} ${tags} -lot -set`;
+    fetch(`/toys/item?keywords=${keywords}`)
+      .then(res => res.json())
+      .then(body => body.findCompletedItemsResponse[0].searchResult[0].item)
+      .then((searchResults) => {
+        let sumOfValues = 0;
+        if (searchResults) {
+          console.log(`${toy.name}: `,  searchResults);
+          searchResults.forEach((result) => {
+            let shippingCost = result.shippingInfo[0].shippingServiceCost;
+            shippingCost = shippingCost ? Number(shippingCost[0]['__value__']) : 0;
+            sumOfValues += Number(result.sellingStatus[0].currentPrice[0]['__value__']) + shippingCost;
+          });
+          sumOfValues /= searchResults.length;
+        } else {
+          sumOfValues = toy.est_value;
+        }
+        return Math.round(sumOfValues);
+      })
+      .then((estValue) => {
+        toy.est_value = estValue;
+        const updatedToys = this.state.toys;
+        updatedToys[toy.id - 1] = toy;
+        this.setState({ toys: updatedToys });
+      })
+      .catch(err => console.error(err));
+  }
 
   updateToyList() {
     fetch('/toys')
@@ -30,13 +66,14 @@ class App extends React.Component {
         this.setState({
           toys,
         });
-      }).catch((err) => {
-        console.error(err);
-      });
-  }
-
-  componentDidMount() {
-    this.updateToyList();
+        return toys;
+      })
+      .then((toys) => {
+        toys.forEach((toy) => {
+          this.updateEstValue(toy);
+        });
+      })
+      .catch(err => console.error(err));
   }
 
   updateSearch(e) {

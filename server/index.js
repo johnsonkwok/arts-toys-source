@@ -36,7 +36,7 @@ app.put('/toys', (req, res) => {
 
 // Endpoint: '/toys/item?keywords=${keywords}'
 app.get('/toys/item', (req, res) => {
-  let keywords = 'ant%20man%20conan%20funko%20pop';
+  let keywords = 'funko%20pop';
   if (req.query.keywords !== undefined) {
     keywords = req.query.keywords;
   }
@@ -69,7 +69,7 @@ app.get('/toys/item', (req, res) => {
       console.error(err);
       res.sendStatus(500);
     }
-    console.log('eBay API Request Status Code:', response.statusCode);
+    // console.log('eBay API Request Status Code:', response.statusCode);
     res.send(response.body);
   });
 });
