@@ -8,6 +8,6 @@ name,retail_price,est_value,category,item_num,property,exclusive_to,picture,rele
 'Fry',10,10,'Animation',27,'Futurama','common','https://s3-us-west-1.amazonaws.com/toys-jk/fry.jpg',2015,'regular'
 'Cat in the Hat (Fish Bowl)',11,9,'Books',9,'Dr. Seuss','Books-A-Million','https://s3-us-west-1.amazonaws.com/toys-jk/cat-in-the-hat-fishbowl.jpeg',2017,'regular'
 'Conan as Ant-Man',0,65,'Conan',16,'Conan','Team Coco San Diego Comic Con','https://s3-us-west-1.amazonaws.com/toys-jk/conan-ant-man.png',2018,'SDCC'
-'Abominable Snowman',20,95,'Disney',289,'Disneyland','Disney Parks','https://s3-us-west-1.amazonaws.com/toys-jk/abominable-snowman.jpg',2017,'regular'
+'Abominable Snowman',20,95,'Disney',289,'Disney','Disney Parks','https://s3-us-west-1.amazonaws.com/toys-jk/abominable-snowman.jpg',2017,'regular'
 'Freddy Funko Alien (Ray Gun)',0,105,'Freddy Funko','SE','Funko','Funko Fundays','https://s3-us-west-1.amazonaws.com/toys-jk/freddy-funko-alien.png',2018,'SDCC'
 'Ghost',10,10,'Game of Thrones',19,'Game of Thrones','common','https://s3-us-west-1.amazonaws.com/toys-jk/ghost.jpg',2014,'regular'

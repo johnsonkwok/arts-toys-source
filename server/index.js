@@ -41,27 +41,21 @@ app.get('/toys/item', (req, res) => {
     keywords = req.query.keywords;
   }
 
-  // const successCb = (data) => {
-  //   console.log(data);
-  //   return data;
-  // };
-
   let url = 'http://svcs.ebay.com/services/search/FindingService/v1';
   url += '?OPERATION-NAME=findCompletedItems';
   url += '&SERVICE-VERSION=1.0.0';
   url += `&SECURITY-APPNAME=${config['X-EBAY-SOA-SECURITY-APPNAME']}`;
   url += '&GLOBAL-ID=EBAY-US';
   url += '&RESPONSE-DATA-FORMAT=JSON';
-  // url += `&callback=${successCb}`;
   url += '&REST-PAYLOAD';
   url += `&keywords=${keywords}`;
-  url += '&itemFilter(0).name=Condition';
-  url += '&itemFilter(0).value=1000';
-  url += '&itemFilter(1).name=Currency';
-  url += '&itemFilter(1).value=USD';
-  url += '&itemFilter(2).name=SoldItemsOnly';
-  url += '&itemFilter(2).value=true';
-  url += '&paginationInput.entriesPerPage=20';
+  // url += '&itemFilter(0).name=Condition';
+  // url += '&itemFilter(0).value=1000';          // -> searches for products in "new" condition
+  url += '&itemFilter(0).name=Currency';
+  url += '&itemFilter(0).value=USD';
+  url += '&itemFilter(1).name=SoldItemsOnly';
+  url += '&itemFilter(1).value=true';
+  url += '&paginationInput.entriesPerPage=30';
   url += '&sortOrder=EndTimeSoonest';
 
   request.get(url, (err, response) => {
