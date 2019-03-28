@@ -23,7 +23,7 @@ const getAllToys = () => {
 const updateToy = (body) => {
   const { propToChange, toy } = body;
   return new Promise((resolve, reject) => {
-    const query = `UPDATE toys SET ${propToChange} = ${Number(!toy[propToChange])} where id = ${toy.id}`;
+    const query = `UPDATE toys SET ${propToChange} = ${Number(!toy[propToChange])} WHERE id = ${toy.id}`;
     db.query(query, (err, results) => {
       if (err) {
         reject(err);
@@ -33,4 +33,21 @@ const updateToy = (body) => {
   });
 };
 
-module.exports = { getAllToys, updateToy };
+const updateAllToys = (toys) => {
+  const toyPromises = [];
+  for (let i = 0; i < toys.length; i += 1) {
+    const query = `UPDATE toys SET est_value = ${toys[i].est_value} WHERE id = ${toys[i].id}`;
+    const toyPromise = new Promise((resolve, reject) => {
+      db.query(query, (err, results) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(results);
+      });
+    });
+    toyPromises.push(toyPromise);
+  }
+  return Promise.all(toyPromises);
+};
+
+module.exports = { getAllToys, updateToy, updateAllToys };

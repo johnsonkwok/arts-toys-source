@@ -13,6 +13,7 @@ class App extends React.Component {
       search: '',
     };
     this.updateEstValue = this.updateEstValue.bind(this);
+    this.updateEstValuesInDb = this.updateEstValuesInDb.bind(this);
     this.updateToyList = this.updateToyList.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
     this.changeView = this.changeView.bind(this);
@@ -20,7 +21,26 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.updateToyList();
+    fetch('/toys')
+      .then(res => res.json())
+      .then((toys) => {
+        this.setState({
+          toys,
+        });
+        return toys;
+      })
+      .then((toys) => {
+        const toyPromises = [];
+        toys.forEach((toy) => {
+          toyPromises.push(this.updateEstValue(toy));
+        });
+        return Promise.all(toyPromises);
+      })
+      .then(() => {
+        const currentToys = this.state.toys;
+        this.updateEstValuesInDb(currentToys);
+      })
+      .catch(err => console.error(err));
   }
 
   updateEstValue(toy) {
@@ -34,7 +54,7 @@ class App extends React.Component {
       tags += ` -exclusive -SDCC -NYCC -ECCC -convention -LE ${toy.item_num}`;
     }
     const keywords = `${toy.name.replace(/[()&]/g, '')} ${toy.company} ${toy.type.replace(/[!]/g, '')} ${toy.property} ${tags} -lot -set -oob -loose -damage -signed -autograph`;
-    fetch(`/toys/item?keywords=${keywords}`)
+    return fetch(`/toys/item?keywords=${keywords}`)
       .then(res => res.json())
       .then(body => body.findCompletedItemsResponse[0].searchResult[0].item)
       .then((searchResults) => {
@@ -61,18 +81,22 @@ class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  updateEstValuesInDb(toys) {
+    fetch('/toys', {
+      method: 'PUT',
+      body: JSON.stringify(toys),
+      headers:{
+        'Content-Type': 'application/json',
+      },
+    }).catch(err => console.error('Network Error:', err));
+  }
+
   updateToyList() {
     fetch('/toys')
       .then(res => res.json())
       .then((toys) => {
         this.setState({
           toys,
-        });
-        return toys;
-      })
-      .then((toys) => {
-        toys.forEach((toy) => {
-          this.updateEstValue(toy);
         });
       })
       .catch(err => console.error(err));
@@ -87,14 +111,14 @@ class App extends React.Component {
       propToChange: property,
       toy: toy,
     };
-    fetch('/toys', {
+    fetch('/toy', {
       method: 'PUT',
       body: JSON.stringify(body),
       headers:{
         'Content-Type': 'application/json',
       },
     }).then(() => this.updateToyList())
-      .catch(error => console.error('Network Error:', error));
+      .catch(err => console.error('Network Error:', err));
   }
 
   changeView(view) {

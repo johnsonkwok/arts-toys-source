@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const path = require('path');
 const request = require('request');
 const config = require('../config.js');
-const { getAllToys, updateToy } = require('../db/index.js');
+const { getAllToys, updateToy, updateAllToys } = require('../db/index.js');
 
 const app = express();
 
@@ -22,11 +22,22 @@ app.get('/toys', (req, res) => {
     });
 });
 
-app.put('/toys', (req, res) => {
+app.put('/toy', (req, res) => {
   const { body } = req;
   updateToy(body)
     .then((results) => {
       console.log('Toy successfully updated!');
+      res.send(results);
+    }).catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+});
+
+app.put('/toys', (req, res) => {
+  const { body } = req;
+  updateAllToys(body)
+    .then((results) => {
       res.send(results);
     }).catch((err) => {
       console.error(err);

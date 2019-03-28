@@ -16,7 +16,7 @@ name,retail_price,est_value,category,item_num,property,exclusive_to,picture,rele
 'Gohan',10,10,'Animation',106,'Dragon Ball Z','common','https://s3-us-west-1.amazonaws.com/toys-jk/gohan-student.jpg',2016,'regular'
 'Goku & Flying Nimbus',10,10,'Animation',109,'Dragon Ball','common','https://s3-us-west-1.amazonaws.com/toys-jk/goku-nimbus-blue.jpg',2016,'-galactic'
 'Goten / Trunks',30,42,'Animation','2-Pack','Dragon Ball Z','Funimation','https://s3-us-west-1.amazonaws.com/toys-jk/goten-trunks-2pack.png',2018,'funimation'
-'Gotenks',13,26,'Animation',319,'Dragon Ball Z','PX Previews','https://s3-us-west-1.amazonaws.com/toys-jk/gotenks.jpg',2018,'previews'
+'Gotenks',13,26,'Animation',319,'Dragon Ball Super','PX Previews','https://s3-us-west-1.amazonaws.com/toys-jk/gotenks.jpg',2018,'previews'
 'Great Ape Vegeta',25,43,'Animation',434,'Dragon Ball Z','Hot Topic','https://s3-us-west-1.amazonaws.com/toys-jk/great-ape-vegeta.jpg',2018,'convention'
 'Ickis',12,12,'Animation',266,'Real Monsters','Hot Topic','https://s3-us-west-1.amazonaws.com/toys-jk/ickis-scary.jpg',2017,'convention'
 'Jerry',10,10,'Animation',405,'Tom and Jerry','common','https://s3-us-west-1.amazonaws.com/toys-jk/jerry-cheese.png',2018,'regular'
