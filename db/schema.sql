@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS toys (
   company VARCHAR(50) NOT NULL DEFAULT 'Funko',
   type VARCHAR(50) NOT NULL DEFAULT 'Pop!',
   category VARCHAR(50),
-  item_num VARCHAR(4),
+  item_num VARCHAR(10),
   property VARCHAR(50),
   exclusive_to VARCHAR(50),
   picture VARCHAR(150),

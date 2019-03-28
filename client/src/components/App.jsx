@@ -26,12 +26,14 @@ class App extends React.Component {
   updateEstValue(toy) {
     let tags = '';
     if (toy.tags === 'regular') {
-      tags += '-chase -keychain -flocked -gitd -metallic -diamond -10 -signed -autograph';
+      tags += '-chase -keychain -flocked -gitd -metallic -diamond -10';
+    } else {
+      tags += toy.tags;
     }
     if (toy.exclusive_to === 'common') {
       tags += ` -exclusive -SDCC -NYCC -ECCC -convention -LE ${toy.item_num}`;
     }
-    const keywords = `${toy.name.replace(/[()]/g, '')} ${toy.company} ${toy.type.replace(/[!]/g, '')} ${toy.property} ${tags} -lot -set -oob -loose -damage`;
+    const keywords = `${toy.name.replace(/[()&]/g, '')} ${toy.company} ${toy.type.replace(/[!]/g, '')} ${toy.property} ${tags} -lot -set -oob -loose -damage -signed -autograph`;
     fetch(`/toys/item?keywords=${keywords}`)
       .then(res => res.json())
       .then(body => body.findCompletedItemsResponse[0].searchResult[0].item)
