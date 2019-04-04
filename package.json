@@ -4,7 +4,7 @@
   "description": "Toy collection tracker and value estimator",
   "main": "server/index.js",
   "scripts": {
-    "build": "webpack -d --watch",
+    "build": "webpack -p",
     "server": "nodemon server/index.js",
     "start": "node server/index.js",
     "schema": "mysql -u root < db/schema.sql"
