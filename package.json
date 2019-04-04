@@ -39,5 +39,8 @@
     "eslint-plugin-react": "^7.12.4",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1"
+  },
+  "engines": {
+    "node": "10.15.0"
   }
 }

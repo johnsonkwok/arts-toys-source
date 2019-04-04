@@ -79,4 +79,6 @@ app.get('/toys/item', (req, res) => {
   });
 });
 
-app.listen(1337, () => console.log('Listening on port 1337'));
+const port = process.env.PORT || 1337;
+
+app.listen(port, () => console.log('Listening on port 1337'));
